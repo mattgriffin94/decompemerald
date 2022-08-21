@@ -4,12 +4,11 @@
 
 - QOL
   - Friendship is always set to max
+  - Infinite TMs
 
 ## Planned Features
 
 - QOL
-
-  - Infinite TMs
   - Auto Repel
   - Infinite Full Restores
   - Infinite of a Berry as soon as you get one of them
@@ -17,7 +16,6 @@
   - Remove Nicknames
 
 - Difficulty
-
   - Update Gym Sets
   - Updated Pokemon variety
 
