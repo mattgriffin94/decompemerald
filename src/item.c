@@ -246,6 +246,16 @@ bool8 IsItemTM(u16 itemId) {
     return (itemId < ITEM_HM01_CUT && itemId >= ITEM_TM01);
 }
 
+// MATTEMERALD
+bool8 IsItemBerry(u16 itemId) {
+    return (itemId <= LAST_BERRY_INDEX && itemId >= FIRST_BERRY_INDEX);
+}
+
+// MattEmerald
+bool8 IsItemInfinite(u16 itemId) {
+    return IsItemTM(itemId) || IsItemBerry(itemId) || itemId == ITEM_FULL_RESTORE || itemId == ITEM_RARE_CANDY;
+}
+
 bool8 AddBagItem(u16 itemId, u16 count)
 {
     u8 i;
@@ -280,8 +290,8 @@ bool8 AddBagItem(u16 itemId, u16 count)
             if (newItems[i].itemId == itemId)
             {
                 // MATTEMERALD
-                // If it's a TM and we have it already, don't bother adding it since we have infinite
-                if (IsItemTM(itemId)) {
+                // don't bother adding it again since we have infinite
+                if (IsItemInfinite(itemId)) {
                     return TRUE;
                 }
                 ownedCount = GetBagItemQuantity(&newItems[i].quantity);
@@ -339,9 +349,9 @@ bool8 AddBagItem(u16 itemId, u16 count)
                     else
                     {
                         // MATTEMERALD, TMs are infinite so may as well show 99
-                        if (IsItemTM(itemId)) 
+                        if (IsItemInfinite(itemId)) 
                         {
-                            count = MAX_BAG_ITEM_CAPACITY;
+                            count = slotCapacity;
                         }
                         // created a new slot and added quantity
                         SetBagItemQuantity(&newItems[i].quantity, count);
@@ -378,6 +388,9 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
     }
     else
     {
+        if (IsItemInfinite(itemId)) {
+            return TRUE;
+        }
         u8 pocket;
         u8 var;
         u16 ownedCount;

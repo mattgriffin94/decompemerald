@@ -10,7 +10,6 @@
 ## Planned Features
 
 - QOL
-  - Auto Repel
   - Infinite Full Restores
   - Infinite of a Berry as soon as you get one of them
   - In-game NPCs who will give you unlimited of various battle items (choice items, sash, etc)
