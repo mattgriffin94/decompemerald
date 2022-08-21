@@ -23,16 +23,24 @@ So this romhack intends to be an enhancement hack (providing QOL features to fix
 
 ## Features Added
 
-- Friendship is always set to max
+- QOL
+  - Friendship is always set to max
 
 ## Planned Features
 
-- Infinite TMs
-- Auto Repel
-- Infinite Full Restores
-- Infinite of a Berry as soon as you get one of them
-- In-game NPCs who will give you unlimited of various battle items (choice items, sash, etc)
-- Update Gym Sets
-- Updated Pokemon variety
-- Enforced Level Caps
-- Remove Nicknames
+- QOL
+
+  - Infinite TMs
+  - Auto Repel
+  - Infinite Full Restores
+  - Infinite of a Berry as soon as you get one of them
+  - In-game NPCs who will give you unlimited of various battle items (choice items, sash, etc)
+  - Remove Nicknames
+
+- Difficulty
+
+  - Update Gym Sets
+  - Updated Pokemon variety
+
+- Nuzlocking
+  - Enforce Hardcore Nuzlocke Rules
