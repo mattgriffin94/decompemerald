@@ -1549,3 +1549,9 @@ static const u8 sOldSeaMapDesc[] = _(
     "A faded sea chart\n"
     "that shows the way\n"
     "to a certain island.");
+
+// MATTEMERALD
+static const u8 sPermaRepelDesc[] = _(
+    "A device that\n"
+    "whistles to repel\n"
+    "wild pokemon");

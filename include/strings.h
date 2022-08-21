@@ -3028,4 +3028,8 @@ extern const u8 gText_BoxName[];
 extern const u8 gText_PkmnsNickname[];
 extern const u8 gText_TellHimTheWords[];
 
+// MattEmerald
+extern const u8 gText_TurnOnRepel[];
+extern const u8 gText_TurnOffRepel[];
+
 #endif // GUARD_STRINGS_H

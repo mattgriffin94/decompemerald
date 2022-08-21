@@ -668,21 +668,24 @@ void RestartWildEncounterImmunitySteps(void)
 
 static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
 {
-    if (sWildEncounterImmunitySteps < 4)
-    {
-        sWildEncounterImmunitySteps++;
+    if (!FlagGet(FLAG_PERMA_REPEL)){
+        if (sWildEncounterImmunitySteps < 4)
+        {
+            sWildEncounterImmunitySteps++;
+            sPreviousPlayerMetatileBehavior = metatileBehavior;
+            return FALSE;
+        }
+
+        if (StandardWildEncounter(metatileBehavior, sPreviousPlayerMetatileBehavior) == TRUE)
+        {
+            sWildEncounterImmunitySteps = 0;
+            sPreviousPlayerMetatileBehavior = metatileBehavior;
+            return TRUE;
+        }
+
         sPreviousPlayerMetatileBehavior = metatileBehavior;
         return FALSE;
     }
-
-    if (StandardWildEncounter(metatileBehavior, sPreviousPlayerMetatileBehavior) == TRUE)
-    {
-        sWildEncounterImmunitySteps = 0;
-        sPreviousPlayerMetatileBehavior = metatileBehavior;
-        return TRUE;
-    }
-
-    sPreviousPlayerMetatileBehavior = metatileBehavior;
     return FALSE;
 }
 

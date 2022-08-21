@@ -1127,4 +1127,32 @@ void ItemUseOutOfBattle_CannotUse(u8 taskId)
     DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
 }
 
+// MATTEMERALD
+
+static void Task_ClosePermaRepelMessage(u8 taskId)
+{
+    ClearDialogWindowAndFrame(0, TRUE);
+    ScriptUnfreezeObjectEvents();
+    UnlockPlayerFieldControls();
+    DestroyTask(taskId);
+}
+
+static void ItemUseOnFieldCB_PermaRepel(u8 taskId)
+{
+    if (FlagGet(FLAG_PERMA_REPEL)) {
+        FlagClear(FLAG_PERMA_REPEL);
+        DisplayItemMessageOnField(taskId, gText_TurnOffRepel, Task_ClosePermaRepelMessage);
+    } else {
+        FlagSet(FLAG_PERMA_REPEL);
+        DisplayItemMessageOnField(taskId, gText_TurnOnRepel, Task_ClosePermaRepelMessage);
+    }
+}
+
+void ItemUseOutOfBattle_PermaRepel(u8 taskId) 
+{
+    sItemUseOnFieldCB = ItemUseOnFieldCB_PermaRepel;
+    SetUpItemUseOnFieldCallback(taskId);
+}
+
+
 #undef tUsingRegisteredKeyItem

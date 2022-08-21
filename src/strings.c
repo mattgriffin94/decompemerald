@@ -254,6 +254,10 @@ const u8 gText_ThePokemonList[] = _("the POKéMON LIST");
 const u8 gText_TheShop[] = _("the shop");
 const u8 gText_ThePC[] = _("the PC");
 
+// MATTEMERALD
+const u8 gText_TurnOnRepel[] = _("BEEP! The machine seems to be working...{PAUSE_UNTIL_PRESS}");
+const u8 gText_TurnOffRepel[] = _("The machine seems to turn off...{PAUSE_UNTIL_PRESS}");
+
 const u8 *const gBagMenu_ReturnToStrings[] =
 {
     [ITEMMENULOCATION_FIELD]               = gText_TheField,

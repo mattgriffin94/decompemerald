@@ -34,4 +34,7 @@ void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseDigOrEscapeRopeOnCurMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 
+// MATTEMERALD
+void ItemUseOutOfBattle_PermaRepel(u8);
+
 #endif // GUARD_ITEM_USE_H

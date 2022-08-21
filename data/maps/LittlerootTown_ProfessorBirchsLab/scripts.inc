@@ -137,6 +137,9 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_AgreeToSeeRival::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GetRivalToTeachYou, MSGBOX_DEFAULT
+	@ mattemerald
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_PermaRepel, MSGBOX_DEFAULT
+	giveitem ITEM_PERMA_REPEL
 	clearflag FLAG_HIDE_ROUTE_101_BOY
 	setvar VAR_BIRCH_LAB_STATE, 3
 	releaseall
@@ -999,3 +1002,11 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+@ MattEmerald
+LittlerootTown_ProfessorBirchsLab_Text_PermaRepel:
+	.string "Also! Here's something could help you\n"
+	.string "in your journey! It's a special\l"
+	.string "device that emits a whistle to scare\l"
+	.string "wild POKéMON.\p"
+	.string "Stay safe while exploring!$"
