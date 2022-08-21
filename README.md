@@ -44,19 +44,3 @@ Here's what I _Don't_ care about in Pokemon games at all:
 - **Intermediate Trainers**. I literally don't get the point of adding waves of cruft trainers you need to battle to progress (Rocket hideout in HG/SS I'm looking at you). I don't want to have to waste my time battling 26 grunts with underleveled zubats, grimers, and koffings. I don't want to have to dread every surfing route because of the hordes of staryu/horsea/seakings that I'll OHKO with a thunderbolt. Some trainers along the way in routes is fine, but once you express an idea, you don't need to bombard me with it.
 
 So this romhack intends to be an enhancement hack (providing QOL features to fix above problems) and a difficulty hack (you can think of this like a boss-rush nuzlocke), that is intended to be hardcore nuzlocked (first encounter only, permadeath, set mode, no items in battles, level caps)
-<<<<<<< HEAD
-=======
-
-## Features Added
-
-## Planned Features
-
-- Infinite TMs
-- Auto Repel
-- Infinite Full Restores
-- Infinite of a Berry as soon as you get one of them
-- In-game NPCs who will give you unlimited of various battle items (choice items, sash, etc)
-- Friendship always set to max
-- Update Gym Sets
-- Updated Pokemon variety
->>>>>>> parent of e2cb124f6... Friendship is always set to Max.  Tested by changing starter to togepi with double edge, and it evolved to togetic immediately on level up to 6
