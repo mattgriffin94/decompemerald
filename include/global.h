@@ -16,6 +16,9 @@
 #include "constants/easy_chat.h"
 #include "constants/trainer_hill.h"
 
+// For local testing and development
+#define LOCAL_DEV 1
+
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 
