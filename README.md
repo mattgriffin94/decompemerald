@@ -33,3 +33,5 @@ So this romhack intends to be an enhancement hack (providing QOL features to fix
 - Friendship always set to max
 - Update Gym Sets
 - Updated Pokemon variety
+- Enforced Level Caps
+- Remove Nicknames
