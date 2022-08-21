@@ -10116,12 +10116,15 @@ static void Cmd_trygivecaughtmonnick(void)
     switch (gBattleCommunication[MULTIUSE_STATE])
     {
     case 0:
-        HandleBattleWindow(YESNOBOX_X_Y, 0);
-        BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
-        gBattleCommunication[MULTIUSE_STATE]++;
-        gBattleCommunication[CURSOR_POSITION] = 0;
-        BattleCreateYesNoCursorAt(0);
+        // MATTEMERALD disable nicknames
+        gBattleCommunication[MULTIUSE_STATE] = 4;
         break;
+        // HandleBattleWindow(YESNOBOX_X_Y, 0);
+        // BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
+        // gBattleCommunication[MULTIUSE_STATE]++;
+        // gBattleCommunication[CURSOR_POSITION] = 0;
+        // BattleCreateYesNoCursorAt(0);
+        // break;
     case 1:
         if (JOY_NEW(DPAD_UP) && gBattleCommunication[CURSOR_POSITION] != 0)
         {

@@ -5,7 +5,8 @@
 - QOL
   - Friendship is always set to max
   - Infinite TMs
-  - High Pitch Whistle! A new key item that Professor Birch will give you along with your starter.  Turn this on to make an infinite always-on repel.  Turn this off if you want wild encounters as normal.  
+  - High Pitch Whistle! A new key item that Professor Birch will give you along with your starter.  Turn this on to make an infinite always-on repel.  Turn this off if you want wild encounters as normal. 
+  - Removed Nickname Prompt on Wild Pokemon Encounters (I hate nicknames! Pokemon are a tool!) 
 
 ## Planned Features
 
