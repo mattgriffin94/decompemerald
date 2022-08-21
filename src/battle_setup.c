@@ -924,7 +924,7 @@ static void CB2_GiveStarter(void)
 #if LOCAL_DEV
     ScriptGiveMon(starterMon, 80, ITEM_RARE_CANDY, 0, 0, 0);
     ScriptGiveMon(SPECIES_EEVEE, 80, ITEM_FIRE_STONE, 0, 0, 0);
-    ScriptGiveMon(SPECIES_TOGEPI, 80, ITEM_RARE_CANDY, 0, 0, 0);
+    ScriptGiveMon(SPECIES_TOGEPI, 80, ITEM_TM29_PSYCHIC, 0, 0, 0);
     ScriptGiveMon(SPECIES_KADABRA, 36, ITEM_RARE_CANDY, 0, 0, 0);
     ScriptGiveMon(SPECIES_MEW, 80, ITEM_TM29_PSYCHIC, 0, 0, 0);
 #endif

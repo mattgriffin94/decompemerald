@@ -241,6 +241,11 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
     return TRUE;
 }
 
+// MATTEMERALD
+bool8 IsItemTM(u16 itemId) {
+    return (itemId < ITEM_HM01_CUT && itemId >= ITEM_TM01);
+}
+
 bool8 AddBagItem(u16 itemId, u16 count)
 {
     u8 i;
@@ -274,6 +279,11 @@ bool8 AddBagItem(u16 itemId, u16 count)
         {
             if (newItems[i].itemId == itemId)
             {
+                // MATTEMERALD
+                // If it's a TM and we have it already, don't bother adding it since we have infinite
+                if (IsItemTM(itemId)) {
+                    return TRUE;
+                }
                 ownedCount = GetBagItemQuantity(&newItems[i].quantity);
                 // check if won't exceed max slot capacity
                 if (ownedCount + count <= slotCapacity)
@@ -328,6 +338,11 @@ bool8 AddBagItem(u16 itemId, u16 count)
                     }
                     else
                     {
+                        // MATTEMERALD, TMs are infinite so may as well show 99
+                        if (IsItemTM(itemId)) 
+                        {
+                            count = MAX_BAG_ITEM_CAPACITY;
+                        }
                         // created a new slot and added quantity
                         SetBagItemQuantity(&newItems[i].quantity, count);
                         count = 0;
