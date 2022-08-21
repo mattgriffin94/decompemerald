@@ -23,6 +23,8 @@ So this romhack intends to be an enhancement hack (providing QOL features to fix
 
 ## Features Added
 
+- Friendship is always set to max
+
 ## Planned Features
 
 - Infinite TMs
@@ -30,7 +32,6 @@ So this romhack intends to be an enhancement hack (providing QOL features to fix
 - Infinite Full Restores
 - Infinite of a Berry as soon as you get one of them
 - In-game NPCs who will give you unlimited of various battle items (choice items, sash, etc)
-- Friendship always set to max
 - Update Gym Sets
 - Updated Pokemon variety
 - Enforced Level Caps
