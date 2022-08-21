@@ -4,8 +4,8 @@
 
 - QOL
   - Friendship is always set to max
-  - Infinite TMs
-  - Infinite Full Restores
+  - TMs are now infinite use.
+  - An NPC in Oldale Pokemon Center will give you infinite Rare Candies and Full Restores
   - Infinite of a Berry as soon as you get one of them
   - High Pitch Whistle! A new key item that Professor Birch will give you along with your starter.  Turn this on to make an infinite always-on repel.  Turn this off if you want wild encounters as normal. 
   - Removed Nickname Prompt on Wild Pokemon Encounters (I hate nicknames! Pokemon are a tool!)
