@@ -388,13 +388,14 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
     }
     else
     {
-        if (IsItemInfinite(itemId)) {
-            return TRUE;
-        }
         u8 pocket;
         u8 var;
         u16 ownedCount;
         struct BagPocket *itemPocket;
+
+        if (IsItemInfinite(itemId)) {
+            return TRUE;
+        }
 
         pocket = ItemId_GetPocket(itemId) - 1;
         itemPocket = &gBagPockets[pocket];
