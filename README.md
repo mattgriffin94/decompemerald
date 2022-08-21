@@ -5,6 +5,8 @@
 - QOL
   - Friendship is always set to max
   - Infinite TMs
+  - Infinite Full Restores
+  - Infinite of a Berry as soon as you get one of them
   - High Pitch Whistle! A new key item that Professor Birch will give you along with your starter.  Turn this on to make an infinite always-on repel.  Turn this off if you want wild encounters as normal. 
   - Removed Nickname Prompt on Wild Pokemon Encounters (I hate nicknames! Pokemon are a tool!)
   - You can now run indoors! 
@@ -12,8 +14,6 @@
 ## Planned Features
 
 - QOL
-  - Infinite Full Restores
-  - Infinite of a Berry as soon as you get one of them
   - In-game NPCs who will give you unlimited of various battle items (choice items, sash, etc)
 
 - Difficulty
