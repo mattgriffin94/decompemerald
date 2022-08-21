@@ -1,9 +1,9 @@
 gText_Birch_Welcome::
-	.string "Hi! Sorry to keep you waiting!\p"
-	.string "Welcome to the world of POKéMON!\p"
-	.string "My name is BIRCH.\p"
-	.string "But everyone calls me the POKéMON\n"
-	.string "PROFESSOR.\p"
+	.string "Hi! Welcome to Matt's Emerald!\p"
+	.string "This is an Enhancement hack\n"
+	.string "with QoL and difficulty changes.\p"
+	.string "Please reach out if you have\n"
+	.string "any problems. Have fun! -MATT\p"
 	.string "$"
 
 gText_Birch_Pokemon::
