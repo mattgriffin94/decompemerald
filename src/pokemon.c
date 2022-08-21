@@ -5863,58 +5863,63 @@ u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
 
 void AdjustFriendship(struct Pokemon *mon, u8 event)
 {
-    u16 species, heldItem;
-    u8 holdEffect;
+    // MATTEMERALD CHANGE NEW
+    s16 newFriendship = MAX_FRIENDSHIP;
+    SetMonData(mon, MON_DATA_FRIENDSHIP, &newFriendship);
 
-    if (ShouldSkipFriendshipChange())
-        return;
+    // MATTEMERALD CHANGE ORIG
+    // u16 species, heldItem;
+    // u8 holdEffect;
 
-    species = GetMonData(mon, MON_DATA_SPECIES2, 0);
-    heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
+    // if (ShouldSkipFriendshipChange())
+    //     return;
 
-    if (heldItem == ITEM_ENIGMA_BERRY)
-    {
-        if (gMain.inBattle)
-            holdEffect = gEnigmaBerries[0].holdEffect;
-        else
-            holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
-    }
-    else
-    {
-        holdEffect = ItemId_GetHoldEffect(heldItem);
-    }
+    // species = GetMonData(mon, MON_DATA_SPECIES2, 0);
+    // heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
 
-    if (species && species != SPECIES_EGG)
-    {
-        u8 friendshipLevel = 0;
-        s16 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
+    // if (heldItem == ITEM_ENIGMA_BERRY)
+    // {
+    //     if (gMain.inBattle)
+    //         holdEffect = gEnigmaBerries[0].holdEffect;
+    //     else
+    //         holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    // }
+    // else
+    // {
+    //     holdEffect = ItemId_GetHoldEffect(heldItem);
+    // }
 
-        if (friendship > 99)
-            friendshipLevel++;
-        if (friendship > 199)
-            friendshipLevel++;
+    // if (species && species != SPECIES_EGG)
+    // {
+    //     u8 friendshipLevel = 0;
+    //     s16 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
 
-        if ((event != FRIENDSHIP_EVENT_WALKING || !(Random() & 1))
-         && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || IS_LEAGUE_BATTLE))
-        {
-            s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
-            if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
-                mod = (150 * mod) / 100;
-            friendship += mod;
-            if (mod > 0)
-            {
-                if (GetMonData(mon, MON_DATA_POKEBALL, 0) == ITEM_LUXURY_BALL)
-                    friendship++;
-                if (GetMonData(mon, MON_DATA_MET_LOCATION, 0) == GetCurrentRegionMapSectionId())
-                    friendship++;
-            }
-            if (friendship < 0)
-                friendship = 0;
-            if (friendship > MAX_FRIENDSHIP)
-                friendship = MAX_FRIENDSHIP;
-            SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
-        }
-    }
+    //     if (friendship > 99)
+    //         friendshipLevel++;
+    //     if (friendship > 199)
+    //         friendshipLevel++;
+
+    //     if ((event != FRIENDSHIP_EVENT_WALKING || !(Random() & 1))
+    //      && (event != FRIENDSHIP_EVENT_LEAGUE_BATTLE || IS_LEAGUE_BATTLE))
+    //     {
+    //         s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
+    //         if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
+    //             mod = (150 * mod) / 100;
+    //         friendship += mod;
+    //         if (mod > 0)
+    //         {
+    //             if (GetMonData(mon, MON_DATA_POKEBALL, 0) == ITEM_LUXURY_BALL)
+    //                 friendship++;
+    //             if (GetMonData(mon, MON_DATA_MET_LOCATION, 0) == GetCurrentRegionMapSectionId())
+    //                 friendship++;
+    //         }
+    //         if (friendship < 0)
+    //             friendship = 0;
+    //         if (friendship > MAX_FRIENDSHIP)
+    //             friendship = MAX_FRIENDSHIP;
+    //         SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+    //     }
+    // }
 }
 
 void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
