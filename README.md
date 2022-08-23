@@ -11,6 +11,7 @@
   - Removed Nickname Prompt on Wild Pokemon Encounters (I hate nicknames! Pokemon are a tool!)
   - You can now run indoors! 
   - See EV/IV in stat summary screen by pressing L/R.
+  - Fishing now always gives you a bite.  You get the fishing rod in Littleroot town at the start of the game.
 
 ## Planned Features
 

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "reshow_battle_screen.h"
 #include "battle.h"
+#include "battle_setup.h"
 #include "palette.h"
 #include "pokemon.h"
 #include "main.h"
@@ -164,6 +165,10 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
         SetMainCallback2(BattleMainCB2);
         FillAroundBattleWindows();
         break;
+    }
+
+    if (eCustomBattleScreenState == BSS_ENEMY_SUMMARY_OPEN) {
+        eCustomBattleScreenState = BSS_ENEMY_SUMMARY_CLOSED;
     }
 
     gBattleScripting.reshowMainState++;
