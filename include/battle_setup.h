@@ -12,6 +12,16 @@ struct RematchTrainer
     u16 mapNum;
 };
 
+
+// MattEmerald
+enum {
+    BSS_NORMAL,
+    BSS_ENEMY_SUMMARY_OPEN,
+    BSS_ENEMY_SUMMARY_CLOSED
+};
+
+extern u8 eCustomBattleScreenState;
+
 extern const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES];
 
 extern u16 gTrainerBattleOpponent_A;

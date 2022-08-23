@@ -35,6 +35,7 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
+#include "pokemon_summary_screen.h"
 
 static void PlayerHandleGetMonData(void);
 static void PlayerHandleSetMonData(void);
@@ -119,6 +120,8 @@ static void DoSwitchOutAnimation(void);
 static void PlayerDoMoveAnimation(void);
 static void Task_StartSendOutAnim(u8);
 static void EndDrawPartyStatusSummary(void);
+
+EWRAM_DATA u8 eCustomBattleScreenState = BSS_NORMAL;
 
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 {
@@ -232,100 +235,117 @@ static void CompleteOnBankSpritePosX_0(void)
 
 static void HandleInputChooseAction(void)
 {
-    u16 itemId = gBattleBufferA[gActiveBattler][2] | (gBattleBufferA[gActiveBattler][3] << 8);
 
-    DoBounceEffect(gActiveBattler, BOUNCE_HEALTHBOX, 7, 1);
-    DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
-
-    if (JOY_REPEAT(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
-        gPlayerDpadHoldFrames++;
-    else
-        gPlayerDpadHoldFrames = 0;
-
-    if (JOY_NEW(A_BUTTON))
-    {
-        PlaySE(SE_SELECT);
-
-        switch (gActionSelectionCursor[gActiveBattler])
-        {
-        case 0: // Top left
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_MOVE, 0);
-            break;
-        case 1: // Top right
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
-            break;
-        case 2: // Bottom left
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
-            break;
-        case 3: // Bottom right
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_RUN, 0);
-            break;
-        }
-        PlayerBufferExecCompleted();
+    if (eCustomBattleScreenState == BSS_ENEMY_SUMMARY_CLOSED) {
+        PlayerHandleChooseAction();
+        eCustomBattleScreenState = BSS_NORMAL;
     }
-    else if (JOY_NEW(DPAD_LEFT))
-    {
-        if (gActionSelectionCursor[gActiveBattler] & 1) // if is B_ACTION_USE_ITEM or B_ACTION_RUN
+
+    if (eCustomBattleScreenState == BSS_NORMAL) {
+        
+        u16 itemId = gBattleBufferA[gActiveBattler][2] | (gBattleBufferA[gActiveBattler][3] << 8);
+
+        DoBounceEffect(gActiveBattler, BOUNCE_HEALTHBOX, 7, 1);
+        DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
+
+        if (JOY_REPEAT(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+            gPlayerDpadHoldFrames++;
+        else
+            gPlayerDpadHoldFrames = 0;
+
+        if (JOY_NEW(A_BUTTON))
         {
             PlaySE(SE_SELECT);
-            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-            gActionSelectionCursor[gActiveBattler] ^= 1;
-            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-        }
-    }
-    else if (JOY_NEW(DPAD_RIGHT))
-    {
-        if (!(gActionSelectionCursor[gActiveBattler] & 1)) // if is B_ACTION_USE_MOVE or B_ACTION_SWITCH
-        {
-            PlaySE(SE_SELECT);
-            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-            gActionSelectionCursor[gActiveBattler] ^= 1;
-            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-        }
-    }
-    else if (JOY_NEW(DPAD_UP))
-    {
-        if (gActionSelectionCursor[gActiveBattler] & 2) // if is B_ACTION_SWITCH or B_ACTION_RUN
-        {
-            PlaySE(SE_SELECT);
-            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-            gActionSelectionCursor[gActiveBattler] ^= 2;
-            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-        }
-    }
-    else if (JOY_NEW(DPAD_DOWN))
-    {
-        if (!(gActionSelectionCursor[gActiveBattler] & 2)) // if is B_ACTION_USE_MOVE or B_ACTION_USE_ITEM
-        {
-            PlaySE(SE_SELECT);
-            ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
-            gActionSelectionCursor[gActiveBattler] ^= 2;
-            ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-        }
-    }
-    else if (JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)
-    {
-        if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-         && GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT
-         && !(gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)])
-         && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
-        {
-            if (gBattleBufferA[gActiveBattler][1] == B_ACTION_USE_ITEM)
+
+            switch (gActionSelectionCursor[gActiveBattler])
             {
-                // Add item to bag if it is a ball
-                if (itemId <= LAST_BALL)
-                    AddBagItem(itemId, 1);
-                else
-                    return;
+            case 0: // Top left
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_MOVE, 0);
+                break;
+            case 1: // Top right
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
+                break;
+            case 2: // Bottom left
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
+                break;
+            case 3: // Bottom right
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_RUN, 0);
+                break;
             }
-            PlaySE(SE_SELECT);
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_CANCEL_PARTNER, 0);
             PlayerBufferExecCompleted();
         }
-    }
-    else if (JOY_NEW(START_BUTTON))
-    {
-        SwapHpBarsWithHpText();
+        else if (JOY_NEW(L_BUTTON))
+        {
+            PlaySE(SE_SELECT);
+            BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
+            FreeAllWindowBuffers();
+            eCustomBattleScreenState = BSS_ENEMY_SUMMARY_OPEN;
+            ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gEnemyParty, gBattlerPartyIndexes[1], CalculateEnemyPartyCount() - 1, CB2_SetUpReshowBattleScreenAfterMenu);
+        }
+        else if (JOY_NEW(DPAD_LEFT))
+        {
+            if (gActionSelectionCursor[gActiveBattler] & 1) // if is B_ACTION_USE_ITEM or B_ACTION_RUN
+            {
+                PlaySE(SE_SELECT);
+                ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+                gActionSelectionCursor[gActiveBattler] ^= 1;
+                ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+            }
+        }
+        else if (JOY_NEW(DPAD_RIGHT))
+        {
+            if (!(gActionSelectionCursor[gActiveBattler] & 1)) // if is B_ACTION_USE_MOVE or B_ACTION_SWITCH
+            {
+                PlaySE(SE_SELECT);
+                ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+                gActionSelectionCursor[gActiveBattler] ^= 1;
+                ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+            }
+        }
+        else if (JOY_NEW(DPAD_UP))
+        {
+            if (gActionSelectionCursor[gActiveBattler] & 2) // if is B_ACTION_SWITCH or B_ACTION_RUN
+            {
+                PlaySE(SE_SELECT);
+                ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+                gActionSelectionCursor[gActiveBattler] ^= 2;
+                ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+            }
+        }
+        else if (JOY_NEW(DPAD_DOWN))
+        {
+            if (!(gActionSelectionCursor[gActiveBattler] & 2)) // if is B_ACTION_USE_MOVE or B_ACTION_USE_ITEM
+            {
+                PlaySE(SE_SELECT);
+                ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
+                gActionSelectionCursor[gActiveBattler] ^= 2;
+                ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
+            }
+        }
+        else if (JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)
+        {
+            if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            && GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT
+            && !(gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)])
+            && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
+            {
+                if (gBattleBufferA[gActiveBattler][1] == B_ACTION_USE_ITEM)
+                {
+                    // Add item to bag if it is a ball
+                    if (itemId <= LAST_BALL)
+                        AddBagItem(itemId, 1);
+                    else
+                        return;
+                }
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_CANCEL_PARTNER, 0);
+                PlayerBufferExecCompleted();
+            }
+        }
+        else if (JOY_NEW(START_BUTTON))
+        {
+            SwapHpBarsWithHpText();
+        }
     }
 }
 
