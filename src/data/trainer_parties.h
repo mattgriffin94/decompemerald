@@ -3366,26 +3366,42 @@ static const struct TrainerMon sParty_Drake[] = {
 
 static const struct TrainerMon sParty_Roxanne1[] = {
     {
-    .iv = 100,
-    .lvl = 12,
-    .species = SPECIES_GEODUDE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+    .iv = 255,
+    .lvl = 13,
+    .species = SPECIES_OMANYTE,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_SLOT_2, // shell armor
+    .nature = NATURE_CAREFUL, // +SpDef, -SpA
+    .moves = {MOVE_SANDSTORM, MOVE_SPIKES, MOVE_ROCK_TOMB, MOVE_REST}
     },
     {
-    .iv = 100,
-    .lvl = 12,
-    .species = SPECIES_GEODUDE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+    .ivs = BEST_IV_SPREAD_HIDDEN_POWER_GRASS,
+    .lvl = 14,
+    .species = SPECIES_LILEEP,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SLOT_1, // suction cups
+    .nature = NATURE_QUIET, // +SpA, -Spe
+    .moves = {MOVE_HIDDEN_POWER, MOVE_TOXIC, MOVE_ROCK_TOMB, MOVE_RECOVER}
     },
     {
-    .iv = 200,
+    .iv = 255,
+    .lvl = 14,
+    .species = SPECIES_MAGCARGO,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SLOT_2, // flame body
+    .nature = NATURE_QUIET, // +SpA, -Spe
+    .gender = TRAINER_MON_FEMALE,
+    .moves = {MOVE_YAWN, MOVE_ROCK_TOMB, MOVE_EMBER, MOVE_ATTRACT}
+    },
+    {
+    .ivs = BEST_IV_SPREAD_HIDDEN_POWER_GROUND,
     .lvl = 15,
     .species = SPECIES_NOSEPASS,
-    .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_BLOCK, MOVE_HARDEN, MOVE_TACKLE, MOVE_ROCK_TOMB}
-    }
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SLOT_2, // magnet pull
+    .nature = NATURE_MODEST, // +SpA, -Atk
+    .moves = {MOVE_THUNDER_WAVE, MOVE_ROCK_TOMB, MOVE_SHOCK_WAVE, MOVE_HIDDEN_POWER}
+    },
 };
 
 static const struct TrainerMon sParty_Brawly1[] = {
