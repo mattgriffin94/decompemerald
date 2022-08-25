@@ -23,7 +23,7 @@ gBattleAI_ScriptsTable::
 	.4byte AI_DoubleBattle 	        @ AI_SCRIPT_DOUBLE_BATTLE
 	.4byte AI_HPAware               @ AI_SCRIPT_HP_AWARE
 	.4byte AI_TrySunnyDayStart      @ AI_SCRIPT_TRY_SUNNY_DAY_START
-	.4byte AI_Ret
+	.4byte AI_PrioritizeHazards     @ AI_SCRIPT_PRIORITIZE_HAZARDS
 	.4byte AI_Ret
 	.4byte AI_Ret
 	.4byte AI_Ret
@@ -2614,10 +2614,21 @@ AI_SetupFirstTurn:
 	if_not_equal 0, AI_SetupFirstTurn_End
 	get_considered_move_effect
 	if_not_in_bytes AI_SetupFirstTurn_SetupEffectsToEncourage, AI_SetupFirstTurn_End
-	if_random_less_than 80, AI_SetupFirstTurn_End
-	score +2
+	score +3
 AI_SetupFirstTurn_End:
 	end
+
+AI_PrioritizeHazards:
+	if_target_is_ally AI_Ret
+	get_considered_move_effect
+	if_not_in_bytes AI_PrioritizeHazards_HazardEffectsToEncourage, AI_PrioritizeHazards_End
+	score +2
+AI_PrioritizeHazards_End:
+	end
+
+AI_PrioritizeHazards_HazardEffectsToEncourage:
+	.byte EFFECT_SPIKES
+    .byte -1
 
 AI_SetupFirstTurn_SetupEffectsToEncourage:
     .byte EFFECT_ATTACK_UP
@@ -2674,6 +2685,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage:
     .byte EFFECT_COSMIC_POWER
     .byte EFFECT_BULK_UP
     .byte EFFECT_CALM_MIND
+	.byte EFFECT_SANDSTORM
     .byte EFFECT_CAMOUFLAGE
     .byte -1
 
