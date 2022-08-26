@@ -66,7 +66,7 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     struct Pokemon mon;
     int i;
 
-#if LOCAL_DEV
+#if FALSE
     for (i = SPECIES_BULBASAUR; i <= SPECIES_CHIMECHO; i++)
     {
         CreateMon(&mon, i, level, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
