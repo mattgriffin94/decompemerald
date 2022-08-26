@@ -2595,7 +2595,6 @@ AI_TryToFaint:
 	end
 
 AI_TryToFaint_DoubleSuperEffective:
-	if_random_less_than 80, AI_TryToFaint_End
 	score +2
 	end
 
