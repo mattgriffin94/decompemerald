@@ -1801,7 +1801,8 @@ static const u16 sTaurosLevelUpLearnset[] = {
 
 static const u16 sMagikarpLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SPLASH),
-    LEVEL_UP_MOVE(15, MOVE_TACKLE),
+    LEVEL_UP_MOVE(10, MOVE_TACKLE),
+    LEVEL_UP_MOVE(15, MOVE_BOUNCE),
     LEVEL_UP_MOVE(30, MOVE_FLAIL),
     LEVEL_UP_END
 };
@@ -1809,6 +1810,7 @@ static const u16 sMagikarpLevelUpLearnset[] = {
 static const u16 sGyaradosLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_THRASH),
     LEVEL_UP_MOVE(20, MOVE_BITE),
+    LEVEL_UP_MOVE(20, MOVE_THRASH),
     LEVEL_UP_MOVE(25, MOVE_DRAGON_RAGE),
     LEVEL_UP_MOVE(30, MOVE_LEER),
     LEVEL_UP_MOVE(35, MOVE_TWISTER),
