@@ -257,6 +257,8 @@ const u8 gText_ThePC[] = _("the PC");
 // MATTEMERALD
 const u8 gText_TurnOnRepel[] = _("BEEP! The machine seems to be working...{PAUSE_UNTIL_PRESS}");
 const u8 gText_TurnOffRepel[] = _("The machine seems to turn off...{PAUSE_UNTIL_PRESS}");
+const u8 gText_RouteNuzlocked[] = _("You've already used your encounter here!{PAUSE_UNTIL_PRESS}");
+const u8 gText_DuplicateEncounter[] = _("You've already caught a POKéMON of this species line!{PAUSE_UNTIL_PRESS}");
 
 const u8 *const gBagMenu_ReturnToStrings[] =
 {

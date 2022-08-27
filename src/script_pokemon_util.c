@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle.h"
+#include "battle_setup.h"
 #include "battle_gfx_sfx_util.h"
 #include "berry.h"
 #include "data.h"
@@ -66,6 +67,10 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     struct Pokemon mon;
     int i;
 
+    if (NuzlockeLocationFlagGet(GetCurrentRegionMapSectionId())) {
+        return MON_CANT_GIVE;
+    }
+
 #if FALSE
     for (i = SPECIES_BULBASAUR; i <= SPECIES_CHIMECHO; i++)
     {
@@ -106,6 +111,11 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     }
     return sentToPc;
 #endif
+    SetNuzlockeDupeFlags(SpeciesToNationalPokedexNum(species));
+    if (!IsWildMonNuzlockeDupe(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)))
+    {
+        NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
+    }
 }
 
 u8 ScriptGiveEgg(u16 species)

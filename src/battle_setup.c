@@ -2,6 +2,7 @@
 #include "battle.h"
 #include "battle_setup.h"
 #include "battle_transition.h"
+#include "daycare.h"
 #include "main.h"
 #include "task.h"
 #include "safari_zone.h"
@@ -600,6 +601,11 @@ void StartRegiBattle(void)
 
 static void CB2_EndWildBattle(void)
 {
+    if(!IsWildMonNuzlockeDupe(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)))
+    {
+        NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
+    }
+
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
 
@@ -616,6 +622,11 @@ static void CB2_EndWildBattle(void)
 
 static void CB2_EndScriptedWildBattle(void)
 {
+    if(!IsWildMonNuzlockeDupe(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)))
+    {
+        NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
+    }
+
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
 
@@ -881,6 +892,32 @@ void ChooseStarter(void)
 {
     SetMainCallback2(CB2_ChooseStarter);
     gMain.savedCallback = CB2_GiveStarter;
+}
+
+void SetNuzlockeDupeFlags(u16 species)
+{
+    u16 eggSpecies = GetEggSpecies(species);
+    u8 index = eggSpecies / 8; // byte
+    u8 bit = eggSpecies % 8; // bit
+    u8 mask = 1 << bit;
+
+    gSaveBlock1Ptr->nuzlockeDupeFlags[index] |= mask;
+}
+
+bool8 CheckNuzlockeDupeFlags(u16 species)
+{
+    u16 eggSpecies = GetEggSpecies(species);
+    u8 index = eggSpecies / 8; // byte
+    u8 bit = eggSpecies % 8; // bit
+    u8 mask = 1 << bit;
+
+
+    return (gSaveBlock1Ptr->nuzlockeDupeFlags[index] & mask) != 0;
+}
+
+bool8 IsWildMonNuzlockeDupe(u16 species)
+{
+    return CheckNuzlockeDupeFlags(species);
 }
 
 static void CB2_GiveStarter(void)

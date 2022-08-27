@@ -23,9 +23,9 @@ gText_PkmnTransferredLanettesPCBoxFull::
 	.string "BOX “{STR_VAR_1}.”$"
 
 gText_NoMoreRoomForPokemon::
-	.string "There's no more room for POKéMON!\p"
-	.string "The POKéMON BOXES are full and\n"
-	.string "can't accept any more!$"
+	.string "You already used your encounter\p"
+	.string "in this location!!\n"
+	.string "I can't give you this!$"
 
 gText_NicknameThisPokemon::
 	.string "Do you want to give a nickname to\n"

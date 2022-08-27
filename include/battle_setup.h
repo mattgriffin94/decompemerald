@@ -73,5 +73,7 @@ bool8 ShouldTryRematchBattle(void);
 bool8 IsTrainerReadyForRematch(void);
 void ShouldTryGetTrainerScript(void);
 u16 CountBattledRematchTeams(u16 trainerId);
+void SetNuzlockeDupeFlags(u16 species);
+bool8 IsWildMonNuzlockeDupe(u16 species);
 
 #endif // GUARD_BATTLE_SETUP_H

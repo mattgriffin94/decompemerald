@@ -3031,5 +3031,6 @@ extern const u8 gText_TellHimTheWords[];
 // MattEmerald
 extern const u8 gText_TurnOnRepel[];
 extern const u8 gText_TurnOffRepel[];
+extern const u8 gText_RouteNuzlocked[];
 
 #endif // GUARD_STRINGS_H

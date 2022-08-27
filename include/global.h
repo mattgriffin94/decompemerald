@@ -1008,7 +1008,9 @@ struct SaveBlock1
     /*0x31DC*/ struct Roamer roamer;
     /*0x31F8*/ struct EnigmaBerry enigmaBerry;
     /*0x322C*/ struct MysteryGiftSave mysteryGift;
-    /*0x3598*/ u8 unused_3598[0x180];
+    /*0x3598*/ u8 unused_3598[0x13D];  // modified from 0x180
+    /*0xIDFC*/ u8 nuzlockeDupeFlags[52]; // 52 bytes to store 411 bits -> keep track of nuzlocke dupes
+    /*0xIDFC*/ u8 nuzlockeLocationFlags[15]; // 14 bytes to store 120 locations (not all used)
     /*0x3718*/ u32 trainerHillTimes[NUM_TRAINER_HILL_MODES];
     /*0x3728*/ struct RamScript ramScript;
     /*0x3B14*/ struct RecordMixingGift recordMixingGift;

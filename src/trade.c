@@ -2,6 +2,7 @@
 #include "malloc.h"
 #include "battle_anim.h"
 #include "battle_interface.h"
+#include "battle_setup.h"
 #include "bg.h"
 #include "cable_club.h"
 #include "data.h"
@@ -4511,6 +4512,7 @@ static void _CreateInGameTradePokemon(u8 whichPlayerMon, u8 whichInGameTrade)
     SetMonData(pokemon, MON_DATA_TOUGH, &inGameTrade->conditions[4]);
     SetMonData(pokemon, MON_DATA_SHEEN, &inGameTrade->sheen);
     SetMonData(pokemon, MON_DATA_MET_LOCATION, &metLocation);
+    SetNuzlockeDupeFlags(inGameTrade->species);
 
     isMail = FALSE;
     if (inGameTrade->heldItem != ITEM_NONE)

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "event_data.h"
 #include "pokedex.h"
+#include "region_map.h"
 
 #define NUM_SPECIAL_FLAGS (SPECIAL_FLAGS_END - SPECIAL_FLAGS_START + 1)
 #define NUM_TEMP_FLAGS    (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
@@ -235,4 +236,27 @@ bool8 FlagGet(u16 id)
         return FALSE;
 
     return TRUE;
+}
+
+void NuzlockeLocationFlagSet(u8 mapsec) 
+{
+    u8 nameId = gRegionMapEntries[mapsec].nameId;
+
+    u8 index = nameId / 8; //get byte in array
+    u8 bit = nameId % 8;   //get bit in byte
+    u8 mask = 1 << bit;
+
+    gSaveBlock1Ptr->nuzlockeLocationFlags[index] |= mask;
+
+}
+
+u8 NuzlockeLocationFlagGet(u8 mapsec)
+{
+    u8 nameId = gRegionMapEntries[mapsec].nameId;
+
+    u8 index = nameId / 8; //get byte in array
+    u8 bit = nameId % 8;   //get bit in byte
+    u8 mask = 1 << bit;
+
+    return ((gSaveBlock1Ptr->nuzlockeLocationFlags[index] & mask) != 0);
 }
