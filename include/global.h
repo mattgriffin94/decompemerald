@@ -17,7 +17,7 @@
 #include "constants/trainer_hill.h"
 
 // For local testing and development
-#define LOCAL_DEV 1
+#define LOCAL_DEV 0
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");

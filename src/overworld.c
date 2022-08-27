@@ -366,6 +366,7 @@ void DoWhiteOut(void)
     Overworld_ResetStateAfterWhiteOut();
     SetWarpDestinationToLastHealLocation();
     WarpIntoMap();
+    DoSoftReset();
 }
 
 void Overworld_ResetStateAfterFly(void)
