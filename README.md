@@ -32,13 +32,6 @@
 - QOL
   - In-game NPCs who will give you unlimited of various battle items (choice items, sash, etc)
 
-- Difficulty
-  - Update Gym Sets
-  - Updated Pokemon variety
-
-- Nuzlocking
-  - Enforce Hardcore Nuzlocke Rules
-
 ## The Rant and Reasoning
 
 This is intended to be _MY_ ideal emerald romhack for nuzlocking. I want to re-state again the keyword "MY", because it likely is much different than yours. Here's what I hate about nuzlocking various original games and even some romhacks, that I want to fix in my own crack at the perfect pokemon game:
