@@ -200,6 +200,7 @@ struct BoxPokemon
     u8 markings;
     u16 checksum;
     u16 unknown;
+    u8 permaDead;
 
     union
     {

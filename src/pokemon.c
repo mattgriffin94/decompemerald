@@ -4079,7 +4079,15 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
         SET8(mon->level);
         break;
     case MON_DATA_HP:
+        if (mon->box.permaDead) 
+        {
+            break;
+        }
         SET16(mon->hp);
+        if (mon->hp <= 0)
+        {
+            mon->box.permaDead = TRUE;
+        }
         break;
     case MON_DATA_MAX_HP:
         SET16(mon->maxHP);
