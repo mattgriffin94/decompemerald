@@ -2,6 +2,18 @@
 
 ## Features Added
 
+- No more self imposed rulesets, nuzlockes are enforced here
+  - If you white-out, you lose (technically I don't have the heart to destroy your save, but it will soft-reset you without giving you a chance to save your progress).
+  - You can only get one pokemon per area (including gifted mons).  Area is defined by the "Met At" location in the pokemmon summary screen.
+  - If your pokemon faints, they can never be healed or revived (perma-death).
+  - You cannot use items in battle (held items are okay, you just can't access bag in trainer battles).
+  - Set Mode is enabled by default.
+  - (soon) enforced level caps.
+
+- Fun Improvements
+  - Reworked route encounters and movesets! I want your existing game knowledge to be relied on in this hack, so all base stats and abilities are the same.  The only changes are to movesets (and some moves are updated to their later-gen equivalents).  
+  - Reworked trainer battles! Boss Battles (like Gym Leaders) should be hard but you should have the tools to defeat them.
+
 - QOL
   - Friendship is always set to max
   - TMs are now infinite use.
@@ -12,6 +24,8 @@
   - You can now run indoors! 
   - See EV/IV in stat summary screen by pressing L/R.
   - Fishing now always gives you a bite.  You get the fishing rod in Littleroot town at the start of the game.
+  - No EVs in this game, don't worry about grinding.
+
 
 ## Planned Features
 
