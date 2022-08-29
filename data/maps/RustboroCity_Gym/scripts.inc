@@ -10,6 +10,11 @@ RustboroCity_Gym_EventScript_Roxanne::
 	release
 	end
 
+RustboroCity_Gym_EventScript_OverLevelCap:
+	msgbox RustboroCity_Gym_Text_Over_Cap, MSGBOX_DEFAULT
+	release
+	end
+
 RustboroCity_Gym_EventScript_RoxanneDefeated::
 	message RustboroCity_Gym_Text_ReceivedStoneBadge
 	waitmessage
@@ -281,3 +286,6 @@ RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons:
 	.string "You only have one POKéMON with you?\p"
 	.string "Please return with at least one more\n"
 	.string "POKéMON.$"
+
+RustboroCity_Gym_Text_Over_Cap:
+	.string "ROXANNE: You're over the Level Cap of 15.$"

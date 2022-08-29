@@ -92,6 +92,7 @@ PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox PetalburgCity_Gym_Text_DadGoCollectBadges, MSGBOX_DEFAULT
+	givemon SPECIES_EEVEE, 10
 	setvar VAR_PETALBURG_GYM_STATE, 2
 	releaseall
 	end
@@ -1229,7 +1230,13 @@ PetalburgCity_Gym_Text_DadGoCollectBadges:
 	.string "Of course, I'm a GYM LEADER, too.\n"
 	.string "We'll battle one day, {PLAYER}.\p"
 	.string "But that's only after you become\n"
-	.string "stronger.$"
+	.string "stronger.\p"
+	.string "Also Son, as the normal type gym\n"
+	.string "leader, I'd like to give you a \n"
+	.string "of one of the most special normal\n"
+	.string "type POKéMON. Treat it with care\n"
+	.string "And you may be surprised what it\n"
+	.string "turns into!$"
 
 PetalburgCity_Gym_Text_NormanGoToRustboro:
 	.string "DAD: Hm? Aren't you going to the\n"

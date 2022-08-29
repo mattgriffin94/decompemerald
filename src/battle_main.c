@@ -2069,29 +2069,29 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
             }
 
-            if (partyData[i].iv > 0)
-            {
-                for (j = 0; j < NUM_STATS; j++)
-                {
-                    SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
-                }
-            }
-            else if (partyData[i].iv == WORST_IVS)
-            {
-                fixedIV = 0;
+            // if (partyData[i].iv > 0)
+            // {
+            //     for (j = 0; j < NUM_STATS; j++)
+            //     {
+            //         SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
+            //     }
+            // }
+            // else if (partyData[i].iv == WORST_IVS)
+            // {
+            //     fixedIV = 0;
 
-                for (j = 0; j < NUM_STATS; j++)
-                {
-                    SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
-                }
-            }
-            else
-            {
-                for (j = 0; j < NUM_STATS; j++)
-                {
-                    SetMonData(&party[i], MON_DATA_HP_IV + j, &partyData[i].ivs[j]);
-                }
-            }
+            //     for (j = 0; j < NUM_STATS; j++)
+            //     {
+            //         SetMonData(&party[i], MON_DATA_HP_IV + j, &fixedIV);
+            //     }
+            // }
+            // else
+            // {
+            //     for (j = 0; j < NUM_STATS; j++)
+            //     {
+            //         SetMonData(&party[i], MON_DATA_HP_IV + j, &partyData[i].ivs[j]);
+            //     }
+            // }
 
             for (j = 0; j < NUM_STATS; j++)
             {

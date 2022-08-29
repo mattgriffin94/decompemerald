@@ -603,7 +603,10 @@ static void CB2_EndWildBattle(void)
 {
     if(!IsWildMonNuzlockeDupe(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)))
     {
-        NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
+        if (FlagGet(FLAG_SYS_POKEDEX_GET))
+        {
+            NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
+        }
     }
 
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
@@ -624,7 +627,10 @@ static void CB2_EndScriptedWildBattle(void)
 {
     if(!IsWildMonNuzlockeDupe(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)))
     {
-        NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
+        if (FlagGet(FLAG_SYS_POKEDEX_GET))
+        {
+            NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
+        }
     }
 
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
@@ -1452,6 +1458,16 @@ void ShowTrainerCantBattleSpeech(void)
     ShowFieldMessage(GetTrainerCantBattleSpeech());
 }
 
+void ShowOverLevelCapSpeech(void)
+{
+    ConvertIntToDecimalStringN(gStringVar1,
+                               GetCurrentLevelCap(),
+                               STR_CONV_MODE_RIGHT_ALIGN,
+                               2);
+    StringExpandPlaceholders(gStringVar4, gText_OverLevelCap);
+    ShowFieldMessage(gStringVar4);
+}
+
 void PlayTrainerEncounterMusic(void)
 {
     u16 trainerId;
@@ -1857,6 +1873,22 @@ bool8 ShouldTryRematchBattle(void)
         return TRUE;
 
     return WasSecondRematchWon(gRematchTable, gTrainerBattleOpponent_A);
+}
+
+bool8 CheckLevelCapGym(void)
+{
+    u8 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species)
+            continue;
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) > 15)
+        {
+            return FALSE;
+        }
+    }
+    return TRUE;
 }
 
 bool8 IsTrainerReadyForRematch(void)

@@ -65,6 +65,7 @@ gSpecials::
 	def_special GetTrainerBattleMode
 	def_special ShowTrainerIntroSpeech
 	def_special ShowTrainerCantBattleSpeech
+	def_special ShowOverLevelCapSpeech
 	def_special GetTrainerFlag
 	def_special DoTrainerApproach
 	def_special PlayTrainerEncounterMusic
@@ -535,3 +536,4 @@ gSpecials::
 	def_special RemoveRecordsWindow
 	def_special CloseDeptStoreElevatorWindow
 	def_special TrySetBattleTowerLinkType
+	def_special CheckLevelCapGym

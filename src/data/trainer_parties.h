@@ -4222,7 +4222,7 @@ static const struct TrainerMon sParty_Shelby5[] = {
 static const struct TrainerMon sParty_Calvin1[] = {
     {
     .iv = 0,
-    .lvl = 5,
+    .lvl = 7,
     .species = SPECIES_POOCHYENA,
     }
 };
@@ -8010,12 +8010,13 @@ static const struct TrainerMon sParty_MaxieMtChimney[] = {
 static const struct TrainerMon sParty_Tiana[] = {
     {
     .iv = 0,
-    .lvl = 4,
-    .species = SPECIES_ZIGZAGOON,
+    .lvl = 8,
+    .species = SPECIES_GROWLITHE,
+    .ability = ABILITY_SLOT_1
     },
     {
     .iv = 0,
-    .lvl = 4,
+    .lvl = 8,
     .species = SPECIES_SHROOMISH,
     }
 };
@@ -8166,13 +8167,13 @@ static const struct TrainerMon sParty_Crissy[] = {
 static const struct TrainerMon sParty_Rick[] = {
     {
     .iv = 0,
-    .lvl = 4,
-    .species = SPECIES_WURMPLE,
+    .lvl = 8,
+    .species = SPECIES_LEDIAN,
     },
     {
     .iv = 0,
-    .lvl = 4,
-    .species = SPECIES_WURMPLE,
+    .lvl = 8,
+    .species = SPECIES_SCYTHER,
     }
 };
 

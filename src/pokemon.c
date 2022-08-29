@@ -5954,81 +5954,81 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 {
     return;
-    u8 evs[NUM_STATS];
-    u16 evIncrease = 0;
-    u16 totalEVs = 0;
-    u16 heldItem;
-    u8 holdEffect;
-    int i, multiplier;
+    // u8 evs[NUM_STATS];
+    // u16 evIncrease = 0;
+    // u16 totalEVs = 0;
+    // u16 heldItem;
+    // u8 holdEffect;
+    // int i, multiplier;
 
-    for (i = 0; i < NUM_STATS; i++)
-    {
-        evs[i] = GetMonData(mon, MON_DATA_HP_EV + i, 0);
-        totalEVs += evs[i];
-    }
+    // for (i = 0; i < NUM_STATS; i++)
+    // {
+    //     evs[i] = GetMonData(mon, MON_DATA_HP_EV + i, 0);
+    //     totalEVs += evs[i];
+    // }
 
-    for (i = 0; i < NUM_STATS; i++)
-    {
-        if (totalEVs >= MAX_TOTAL_EVS)
-            break;
+    // for (i = 0; i < NUM_STATS; i++)
+    // {
+    //     if (totalEVs >= MAX_TOTAL_EVS)
+    //         break;
 
-        if (CheckPartyHasHadPokerus(mon, 0))
-            multiplier = 2;
-        else
-            multiplier = 1;
+    //     if (CheckPartyHasHadPokerus(mon, 0))
+    //         multiplier = 2;
+    //     else
+    //         multiplier = 1;
 
-        switch (i)
-        {
-        case STAT_HP:
-            evIncrease = gBaseStats[defeatedSpecies].evYield_HP * multiplier;
-            break;
-        case STAT_ATK:
-            evIncrease = gBaseStats[defeatedSpecies].evYield_Attack * multiplier;
-            break;
-        case STAT_DEF:
-            evIncrease = gBaseStats[defeatedSpecies].evYield_Defense * multiplier;
-            break;
-        case STAT_SPEED:
-            evIncrease = gBaseStats[defeatedSpecies].evYield_Speed * multiplier;
-            break;
-        case STAT_SPATK:
-            evIncrease = gBaseStats[defeatedSpecies].evYield_SpAttack * multiplier;
-            break;
-        case STAT_SPDEF:
-            evIncrease = gBaseStats[defeatedSpecies].evYield_SpDefense * multiplier;
-            break;
-        }
+    //     switch (i)
+    //     {
+    //     case STAT_HP:
+    //         evIncrease = gBaseStats[defeatedSpecies].evYield_HP * multiplier;
+    //         break;
+    //     case STAT_ATK:
+    //         evIncrease = gBaseStats[defeatedSpecies].evYield_Attack * multiplier;
+    //         break;
+    //     case STAT_DEF:
+    //         evIncrease = gBaseStats[defeatedSpecies].evYield_Defense * multiplier;
+    //         break;
+    //     case STAT_SPEED:
+    //         evIncrease = gBaseStats[defeatedSpecies].evYield_Speed * multiplier;
+    //         break;
+    //     case STAT_SPATK:
+    //         evIncrease = gBaseStats[defeatedSpecies].evYield_SpAttack * multiplier;
+    //         break;
+    //     case STAT_SPDEF:
+    //         evIncrease = gBaseStats[defeatedSpecies].evYield_SpDefense * multiplier;
+    //         break;
+    //     }
 
-        heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
-        if (heldItem == ITEM_ENIGMA_BERRY)
-        {
-            if (gMain.inBattle)
-                holdEffect = gEnigmaBerries[0].holdEffect;
-            else
-                holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
-        }
-        else
-        {
-            holdEffect = ItemId_GetHoldEffect(heldItem);
-        }
+    //     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
+    //     if (heldItem == ITEM_ENIGMA_BERRY)
+    //     {
+    //         if (gMain.inBattle)
+    //             holdEffect = gEnigmaBerries[0].holdEffect;
+    //         else
+    //             holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    //     }
+    //     else
+    //     {
+    //         holdEffect = ItemId_GetHoldEffect(heldItem);
+    //     }
 
-        if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
-            evIncrease *= 2;
+    //     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
+    //         evIncrease *= 2;
 
-        if (totalEVs + (s16)evIncrease > MAX_TOTAL_EVS)
-            evIncrease = ((s16)evIncrease + MAX_TOTAL_EVS) - (totalEVs + evIncrease);
+    //     if (totalEVs + (s16)evIncrease > MAX_TOTAL_EVS)
+    //         evIncrease = ((s16)evIncrease + MAX_TOTAL_EVS) - (totalEVs + evIncrease);
 
-        if (evs[i] + (s16)evIncrease > MAX_PER_STAT_EVS)
-        {
-            int val1 = (s16)evIncrease + MAX_PER_STAT_EVS;
-            int val2 = evs[i] + evIncrease;
-            evIncrease = val1 - val2;
-        }
+    //     if (evs[i] + (s16)evIncrease > MAX_PER_STAT_EVS)
+    //     {
+    //         int val1 = (s16)evIncrease + MAX_PER_STAT_EVS;
+    //         int val2 = evs[i] + evIncrease;
+    //         evIncrease = val1 - val2;
+    //     }
 
-        evs[i] += evIncrease;
-        totalEVs += evIncrease;
-        SetMonData(mon, MON_DATA_HP_EV + i, &evs[i]);
-    }
+    //     evs[i] += evIncrease;
+    //     totalEVs += evIncrease;
+    //     SetMonData(mon, MON_DATA_HP_EV + i, &evs[i]);
+    // }
 }
 
 u16 GetMonEVCount(struct Pokemon *mon)

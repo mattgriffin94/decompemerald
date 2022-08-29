@@ -3032,5 +3032,6 @@ extern const u8 gText_TellHimTheWords[];
 extern const u8 gText_TurnOnRepel[];
 extern const u8 gText_TurnOffRepel[];
 extern const u8 gText_RouteNuzlocked[];
+extern const u8 gText_OverLevelCap[];
 
 #endif // GUARD_STRINGS_H
