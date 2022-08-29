@@ -8,6 +8,7 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall
 	specialvar VAR_RESULT, CheckLevelCapGym
 	goto_if_eq VAR_RESULT, FALSE, MovePlayerDown
+	setflag FLAG_BEAT_WOODS_GRUNT
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerLeft
 	waitmovement 0
@@ -35,7 +36,6 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 	applymovement LOCALID_GRUNT, PetalburgWoods_Movement_AquaBackOff
 	waitmovement 0
 	call PetalburgWoods_EventScript_DevonResearcherPostBattle
-	setflag FLAG_BEAT_WOODS_GRUNT
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_WatchResearcherLeave
 	applymovement LOCALID_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherExitLeft
 	waitmovement 0

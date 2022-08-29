@@ -2906,7 +2906,7 @@ void BoxMonToMon(const struct BoxPokemon *src, struct Pokemon *dest)
     u32 value = 0;
     dest->box = *src;
     SetMonData(dest, MON_DATA_STATUS, &value);
-    SetMonData(dest, MON_DATA_HP, &value);
+    // SetMonData(dest, MON_DATA_HP, &value);
     SetMonData(dest, MON_DATA_MAX_HP, &value);
     value = MAIL_NONE;
     SetMonData(dest, MON_DATA_MAIL, &value);
