@@ -1,5 +1,5 @@
-.set LOCALID_GRUNT, 3
-.set LOCALID_DEVON_EMPLOYEE, 4
+.set LOCALID_GRUNT, 1
+.set LOCALID_DEVON_EMPLOYEE, 2
 
 PetalburgWoods_MapScripts::
 	.byte 0
@@ -46,6 +46,7 @@ PetalburgWoods_EventScript_DevonResearcherRight::
 	lockall
 	specialvar VAR_RESULT, CheckLevelCapGym
 	goto_if_eq VAR_RESULT, FALSE, MovePlayerDown
+	setflag FLAG_BEAT_WOODS_GRUNT
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerRight
 	waitmovement 0
