@@ -686,6 +686,7 @@ static const u16 sDugtrioLevelUpLearnset[] = {
 static const u16 sMeowthLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SCRATCH),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
+    LEVEL_UP_MOVE(8, MOVE_PAY_DAY),
     LEVEL_UP_MOVE(11, MOVE_BITE),
     LEVEL_UP_MOVE(20, MOVE_PAY_DAY),
     LEVEL_UP_MOVE(28, MOVE_FAINT_ATTACK),
@@ -3183,9 +3184,9 @@ static const u16 sKingdraLevelUpLearnset[] = {
 };
 
 static const u16 sPhanpyLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_ODOR_SLEUTH),
+    LEVEL_UP_MOVE( 1, MOVE_ROLLOUT),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
-    LEVEL_UP_MOVE( 1, MOVE_GROWL),
+    LEVEL_UP_MOVE( 1, MOVE_MUD_SHOT),
     LEVEL_UP_MOVE( 9, MOVE_DEFENSE_CURL),
     LEVEL_UP_MOVE(17, MOVE_FLAIL),
     LEVEL_UP_MOVE(25, MOVE_TAKE_DOWN),
@@ -3647,9 +3648,8 @@ static const u16 sSceptileLevelUpLearnset[] = {
 static const u16 sTorchicLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SCRATCH),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
-    LEVEL_UP_MOVE( 7, MOVE_FOCUS_ENERGY),
-    LEVEL_UP_MOVE(10, MOVE_EMBER),
-    LEVEL_UP_MOVE(16, MOVE_PECK),
+    LEVEL_UP_MOVE( 7, MOVE_EMBER),
+    LEVEL_UP_MOVE(10, MOVE_PECK),
     LEVEL_UP_MOVE(19, MOVE_SAND_ATTACK),
     LEVEL_UP_MOVE(25, MOVE_FIRE_SPIN),
     LEVEL_UP_MOVE(28, MOVE_QUICK_ATTACK),
@@ -3910,8 +3910,10 @@ static const u16 sLudicoloLevelUpLearnset[] = {
 
 static const u16 sSeedotLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_BIDE),
+    LEVEL_UP_MOVE( 1, MOVE_ABSORB),
     LEVEL_UP_MOVE( 3, MOVE_HARDEN),
     LEVEL_UP_MOVE( 7, MOVE_GROWTH),
+    LEVEL_UP_MOVE(10, MOVE_MEGA_DRAIN),
     LEVEL_UP_MOVE(13, MOVE_NATURE_POWER),
     LEVEL_UP_MOVE(21, MOVE_SYNTHESIS),
     LEVEL_UP_MOVE(31, MOVE_SUNNY_DAY),
@@ -3921,8 +3923,10 @@ static const u16 sSeedotLevelUpLearnset[] = {
 
 static const u16 sNuzleafLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_POUND),
+    LEVEL_UP_MOVE( 1, MOVE_ABSORB),
     LEVEL_UP_MOVE( 3, MOVE_HARDEN),
     LEVEL_UP_MOVE( 7, MOVE_GROWTH),
+    LEVEL_UP_MOVE(10, MOVE_MEGA_DRAIN),
     LEVEL_UP_MOVE(13, MOVE_NATURE_POWER),
     LEVEL_UP_MOVE(19, MOVE_FAKE_OUT),
     LEVEL_UP_MOVE(25, MOVE_TORMENT),

@@ -9887,7 +9887,7 @@ static void Cmd_handleballthrow(void)
             else
                 gBattleCommunication[MULTISTRING_CHOOSER] = 1;
 
-            SetNuzlockeDupeFlags(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_SPECIES)));
+            SetNuzlockeDupeFlags(GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_SPECIES));
             NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
         }
         else // mon may be caught, calculate shakes
@@ -9915,7 +9915,7 @@ static void Cmd_handleballthrow(void)
                 else
                     gBattleCommunication[MULTISTRING_CHOOSER] = 1;
 
-                SetNuzlockeDupeFlags(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_SPECIES)));
+                SetNuzlockeDupeFlags(GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_SPECIES));
                 NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
             }
             else // not caught

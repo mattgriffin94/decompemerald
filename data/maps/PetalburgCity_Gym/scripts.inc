@@ -93,6 +93,8 @@ PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial::
 	waitmovement 0
 	msgbox PetalburgCity_Gym_Text_DadGoCollectBadges, MSGBOX_DEFAULT
 	givemon SPECIES_EEVEE, 10
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox ObtainedEevee, MSGBOX_DEFAULT
 	setvar VAR_PETALBURG_GYM_STATE, 2
 	releaseall
 	end
@@ -1231,11 +1233,11 @@ PetalburgCity_Gym_Text_DadGoCollectBadges:
 	.string "We'll battle one day, {PLAYER}.\p"
 	.string "But that's only after you become\n"
 	.string "stronger.\p"
-	.string "Also Son, as the normal type gym\n"
-	.string "leader, I'd like to give you a \n"
-	.string "of one of the most special normal\n"
-	.string "type POKéMON. Treat it with care\n"
-	.string "And you may be surprised what it\n"
+	.string "Also Son, as the NORMAL type gym\n"
+	.string "leader, I'd like to give you one\l"
+	.string "of the most special NORMAL\l"
+	.string "type POKéMON. Treat it with care\l"
+	.string "and you may be surprised what it\l"
 	.string "turns into!$"
 
 PetalburgCity_Gym_Text_NormanGoToRustboro:
@@ -1599,4 +1601,7 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons:
 	.string "capable of battle?\p"
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
+
+ObtainedEevee:
+	.string "{PLAYER} obtained an EEVEE.$"
 

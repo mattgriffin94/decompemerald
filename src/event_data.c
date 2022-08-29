@@ -261,10 +261,10 @@ u8 NuzlockeLocationFlagGet(u8 mapsec)
     return ((gSaveBlock1Ptr->nuzlockeLocationFlags[index] & mask) != 0);
 }
 
-const u16 sLevelCaps[NUM_SOFT_CAPS] = { 15, 25, 35, 45, 55, 65, 75, 85, 95 };
+const u16 sLevelCaps[NUM_SOFT_CAPS] = { 12, 15, 25, 35, 45, 55, 65, 75, 85, 95 };
 const u16 sLevelCapFlags[NUM_SOFT_CAPS] =
 {
-    FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
+    FLAG_BEAT_WOODS_GRUNT, FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
     FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET,
     FLAG_DEFEATED_ELITE_4_SIDNEY
 };

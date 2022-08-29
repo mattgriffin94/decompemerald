@@ -111,11 +111,8 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     }
     return sentToPc;
 #endif
-    SetNuzlockeDupeFlags(SpeciesToNationalPokedexNum(species));
-    if (!IsWildMonNuzlockeDupe(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)))
-    {
-        NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
-    }
+    SetNuzlockeDupeFlags(species);
+    NuzlockeLocationFlagSet(GetCurrentRegionMapSectionId());
 }
 
 u8 ScriptGiveEgg(u16 species)
