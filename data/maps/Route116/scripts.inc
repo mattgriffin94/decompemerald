@@ -1,5 +1,5 @@
-.set LOCALID_BRINEY, 9
-.set LOCALID_WANDAS_BF_OUTSIDE, 17
+.set LOCALID_BRINEY, 7
+.set LOCALID_WANDAS_BF_OUTSIDE, 13
 
 Route116_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route116_OnTransition
@@ -464,10 +464,8 @@ Route116_Text_TrainerTipsBToStopEvolution:
 	.string "This is called an evolution cancel.$"
 
 Route116_Text_TrainerTipsBagHasPockets:
-	.string "TRAINER TIPS\p"
-	.string "Your BAG has several POCKETS.\p"
-	.string "Items you obtain are automatically\n"
-	.string "placed in the appropriate POCKETS.\p"
-	.string "No TRAINER can afford to be without\n"
-	.string "a BAG of their own.$"
+	.string "WARNING\p"
+	.string "These trainers are hard...\n"
+	.string "but will allow you to access\l"
+	.string "strong items!$"
 
