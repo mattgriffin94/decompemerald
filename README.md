@@ -24,7 +24,8 @@
   - You can now run indoors! 
   - See EV/IV in stat summary screen by pressing L/R.
   - Fishing now always gives you a bite.  You get the fishing rod in Littleroot town at the start of the game.
-  - No EVs in this game, don't worry about grinding.
+  - No EVs in this game, don't worry about grinding, and all pokemon have perfect IVs. 
+  - Stat screen now shows which stats are increased or decreased by the nature.
 
 
 ## Planned Features

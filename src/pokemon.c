@@ -2884,7 +2884,10 @@ void CalculateMonStats(struct Pokemon *mon)
     }
     else
     {
-        if (currentHP == 0 && oldMaxHP == 0)
+        if (currentHP == 0xfff) {
+            currentHP = newMaxHP;
+        }
+        else if (currentHP == 0 && oldMaxHP == 0)
             currentHP = newMaxHP;
         else if (currentHP != 0) {
             // BUG: currentHP is unintentionally able to become <= 0 after the instruction below. This causes the pomeg berry glitch.
@@ -2904,9 +2907,10 @@ void CalculateMonStats(struct Pokemon *mon)
 void BoxMonToMon(const struct BoxPokemon *src, struct Pokemon *dest)
 {
     u32 value = 0;
+    u32 valueMatt = 0xfff;
     dest->box = *src;
     SetMonData(dest, MON_DATA_STATUS, &value);
-    // SetMonData(dest, MON_DATA_HP, &value);
+    SetMonData(dest, MON_DATA_HP, &valueMatt);
     SetMonData(dest, MON_DATA_MAX_HP, &value);
     value = MAIL_NONE;
     SetMonData(dest, MON_DATA_MAIL, &value);

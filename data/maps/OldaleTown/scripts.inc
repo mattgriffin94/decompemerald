@@ -344,8 +344,9 @@ OldaleTown_Movement_ReturnToOriginalPosition:
 	step_end
 
 OldaleTown_Text_SavingMyProgress:
-	.string "I want to take a rest, so I'm saving my\n"
-	.string "progress.$"
+	.string "You can't use items in battle.\n"
+	.string "X Attacks and Potions were\l"
+	.string "banned by the UNOVO convention.$"
 
 OldaleTown_Text_IWorkAtPokemonMart:
 	.string "Hi!\n"
