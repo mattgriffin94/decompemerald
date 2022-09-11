@@ -8,7 +8,7 @@
   - If your pokemon faints, they can never be healed or revived (perma-death).
   - You cannot use items in battle (held items are okay, you just can't access bag in trainer battles).
   - Set Mode is enabled by default.
-  - (soon) enforced level caps.
+  - Enforced level caps.  It's only enforced in game for some major battles, with self-enforcement in between.  There are signs periodically throughout the game that tell you when and where the next level cap is.
 
 - Fun Improvements
   - Reworked route encounters and movesets! I want your existing game knowledge to be relied on in this hack, so all base stats and abilities are the same.  The only changes are to movesets (and some moves are updated to their later-gen equivalents).  
